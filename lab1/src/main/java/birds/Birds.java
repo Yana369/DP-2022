@@ -1,7 +1,16 @@
 package birds;
 
-public class Birds {
+import java.io.Serializable;
 
+public class Birds implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	
 	private String title;
 	private int age;
 	private String info;

@@ -9,14 +9,22 @@ import { Service1Service } from './services/service1.service';
 })
 export class AppComponent {
   title = 'lab1f';
-  
   birdsList:Birds[]=[];
+
 
   constructor(private service:Service1Service){}
   getBirds():void{
     this.service.getBirds().subscribe(
       (birds)=>{
         this.birdsList=birds;
+      }
+    )
+  }
+        addBirds(birds:Birds){
+          this.service.setBirds(birds).subscribe(
+            (birds)=>{
+              console.log(birds);
+              this.getBirds();
       }
     )
   }

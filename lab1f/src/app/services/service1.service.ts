@@ -8,8 +8,15 @@ import { Birds } from '../interfaces/birds';
 export class Service1Service {
 url:string="http://localhost:8080/lab1/Servlet1"
 
-  constructor(private http:HttpClient) { }
-  getBirds():Observable<Birds[]>{
-    return this.http.get<Birds[]>(this.url);
+setService1Service: any;
+
+constructor(private http:HttpClient) { }
+getBirds():Observable<Birds[]>{
+  return this.http.get<Birds[]>(this.url);
+}
+
+  setBirds(params: any):Observable<Object> {
+    return this.http.put(this.url, {}, { params: params });
   }
+
 }
