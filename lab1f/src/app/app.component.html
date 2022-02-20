@@ -1,0 +1,18 @@
+<div><h1>Лабораторна робота 1</h1></div>
+<div class="card">
+<a href="./Servlet1">Servlet1</a>
+
+<button (click)="getBirds()">Get Birds</button>
+
+<ul>
+  <li *ngFor="let ani of birdsList">
+    Title: {{ani.title}}
+  </li>
+  <li *ngFor="let ani of birdsList">
+    Age: {{ani.age}} years
+  </li>
+  <li *ngFor="let ani of birdsList">
+    Info: {{ani.info}}
+  </li>
+  <li><img src="assets/owl.jpg" (click)="getBirds()"></li>
+</ul>
