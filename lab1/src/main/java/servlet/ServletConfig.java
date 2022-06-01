@@ -2,7 +2,6 @@ package servlet;
 
 import crud.FileCrud;
 import crud.Lab2CrudInterface;
-import mock.Lab2CrudMock;
 
 public class ServletConfig implements ServletConfigInterface {
 

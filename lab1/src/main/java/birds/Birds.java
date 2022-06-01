@@ -8,17 +8,26 @@ public class Birds implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
-	
+	private int id;
 	private String title;
 	private int age;
 	private String info;
-	public Birds(String title, int age, String info) {
+	
+	public Birds(int id,String title, int age, String info) {
 		super();
+		this.id = id;
 		this.title = title;
 		this.age = age;
 		this.info = info;
+	}
+	public Birds() {
+		// TODO Auto-generated constructor stub
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
@@ -40,6 +49,6 @@ public class Birds implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "{\"title\":\""+title+"\",\"age\":"+age+", \"info\":\""+info+"\"}";
+		return "{\"id\": \""+id+"\",\"title\":\""+title+"\",\"age\":"+age+", \"info\":\""+info+"\"}";
 	}
 }
