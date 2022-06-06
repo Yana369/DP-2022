@@ -31,6 +31,8 @@ export class Component1Component implements OnInit {
     
     let add = document.getElementsByClassName("addbtn");
     let addform = document.getElementById("add-hidden");
+    let upd = document.getElementsByClassName("updbtn");
+    let updform = document.getElementById("upd-hidden");
     let rm = document.getElementsByClassName("rmbtn");
     let rmform = document.getElementById("rm-hidden");
     
@@ -41,6 +43,15 @@ export class Component1Component implements OnInit {
       }
       else{
         addform!.style.display = "block";
+      }
+    });
+    
+    upd[0].addEventListener("click", () => {
+      if(updform!.style.display == "block"){
+        updform!.style.display = "none";
+      }
+      else{
+        updform!.style.display = "block";
       }
     });
       

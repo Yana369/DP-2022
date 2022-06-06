@@ -20,7 +20,7 @@ a{
 }
 .btn{
     background-color: rgb(0, 255, 25);
-    border-radius: 20px;
+    border-radius: 15px;
     min-width: 200px;
     width: 30%;
     height: auto;
@@ -46,11 +46,11 @@ a{
     justify-content: space-evenly;
     margin-bottom: 60px;
 }
-.add,.remove{
+.add, .updbtn, .remove{
     display: grid;
     grid-template-rows: 120px auto;
 }
-.addbtn, .rmbtn{
+.addbtn, .updbtn, .rmbtn{
     background-color: rgb(225, 255, 0);
     border-radius: 20px;
     min-width: 200px;
@@ -61,12 +61,12 @@ a{
     padding-top: 40px;
     padding-bottom: 40px;
 }
-.addbtn:hover, .rmbtn:hover{
+.addbtn:hover, .updbtn:hover, .rmbtn:hover{
     cursor: pointer; 
 }
-.addbtn:active, .rmbtn:active{
+.addbtn:active, .updbtn:active, .rmbtn:active{
     cursor: pointer;
 }
-.add-hidden, .rm-hidden{
+.add-hidden, .upd-hidden, .rm-hidden{
     display: none;
 }
