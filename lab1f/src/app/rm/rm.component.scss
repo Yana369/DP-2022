@@ -3,5 +3,8 @@
     flex-direction: column;
     align-items: stretch;
     margin-top: 10px;
-    text-align: center;
+}
+.double{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
 }

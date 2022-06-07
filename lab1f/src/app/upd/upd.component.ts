@@ -9,30 +9,36 @@ import { Service1Service } from '../services/service1.service';
 })
 export class UpdComponent implements OnInit {
 
-  BirdsList:Birds[]=[];
-  
+  birdsList:Birds[]=[];
+  selectedItem?:Birds;
   constructor(private service:Service1Service) { }
 
 
-  getBirds():void{
-    this.service.getBirds().subscribe(
-      (birds)=>{
-        this.BirdsList=birds;
-        this.service.setList(birds);
+
+  getRest():void{
+    this.service.getRest().subscribe(
+      (rest1)=>{
+        this.birdsList=rest1._embedded.birdses;
       }
     )
-  }
-
-  ngOnInit(): void {
-    this.getBirds();
   }
   
-  updateBirds(birds:Birds){
-    this.service.putBirds(birds).subscribe(
+  onSelect(birds:Birds){
+    this.selectedItem=birds;
+  }
+
+
+  ngOnInit(): void {
+    this.getRest();
+  }
+  
+  updateRest(birds:Birds){
+    this.service.putRest(this.selectedItem!._links.self.href, birds).subscribe(
       ()=>{
-        this.getBirds();
+        this.getRest();
       }
     )
   }
+  
 
 }

@@ -7,3 +7,7 @@
         margin: 10px;
     }
 }
+.double{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}

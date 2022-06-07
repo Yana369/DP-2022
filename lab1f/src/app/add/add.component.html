@@ -1,7 +1,6 @@
-<form #form1="ngForm" (ngSubmit)="addBirds(form1.value)" class="addform">
+<form #form1="ngForm" (ngSubmit)="addRest(form1.value)" class="addform">
     <input type="text" placeholder="Name of the Bird" name="title" ngModel>
     <input type="number" min="1" max="5000" placeholder="Age of the Bird" name="age" ngModel>
     <input type="text" placeholder="Info of the Bird" name="info" ngModel>
-    <input type="radio" value="1" name="id" ngModel><label for="id">Check this to add the bird</label>
     <input type="submit" class="addbutton" value="Add Bird!">
 </form>

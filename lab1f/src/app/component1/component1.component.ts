@@ -9,16 +9,15 @@ import { Service1Service } from 'src/app/services/service1.service';
 })
 export class Component1Component implements OnInit {
 
-  birdsList:Birds[]=[];
+  BirdsList:Birds[]=[];
   constructor(private service:Service1Service) { }
 
 
 
-  getBirds():void{
-    this.service.getBirds().subscribe(
-      (birds)=>{
-        this.birdsList=birds;
-        this.service.setList(birds);
+  getRest():void{
+    this.service.getRest().subscribe(
+      (rest1)=>{
+        this.BirdsList=rest1._embedded.birdses;
       }
     )
   }
@@ -27,7 +26,7 @@ export class Component1Component implements OnInit {
 
   ngOnInit(): void {
     
-    this.getBirds();
+    this.getRest();
     
     let add = document.getElementsByClassName("addbtn");
     let addform = document.getElementById("add-hidden");
@@ -45,7 +44,7 @@ export class Component1Component implements OnInit {
         addform!.style.display = "block";
       }
     });
-    
+
     upd[0].addEventListener("click", () => {
       if(updform!.style.display == "block"){
         updform!.style.display = "none";

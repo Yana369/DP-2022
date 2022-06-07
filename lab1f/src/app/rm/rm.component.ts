@@ -8,20 +8,15 @@ import { Service1Service } from '../services/service1.service';
   styleUrls: ['./rm.component.scss']
 })
 export class RmComponent implements OnInit {
-
-
-  
-
-  birdsList:Birds[]=[];
+  BirdsList:Birds[]=[];
   constructor(private service:Service1Service) { }
 
 
 
-  getBirds():void{
-    this.service.getBirds().subscribe(
-      (birds)=>{
-        this.birdsList=birds;
-        this.service.setList(birds);
+  getRest():void{
+    this.service.getRest().subscribe(
+      (rest1)=>{
+        this.BirdsList=rest1._embedded.birdses;
       }
     )
   }
@@ -29,13 +24,13 @@ export class RmComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getBirds();
+    this.getRest();
   }
   
-  removeBirds(birds:Birds){
-    this.service.deleteBirds(birds).subscribe(
+  removeRest(birds:Birds){
+    this.service.deleteRest(birds).subscribe(
       ()=>{
-        this.getBirds();
+        this.getRest();
       }
     )
   }

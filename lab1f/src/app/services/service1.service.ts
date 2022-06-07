@@ -2,31 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Birds } from '../interfaces/birds';
+import { Rest1 } from '../interfaces/rest1';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Service1Service {
   
-  list = new BehaviorSubject<Birds[]>([]);
-url:string="http://localhost:8080/lab1/Servlet1"
+  url:string="http://localhost:1155/birdses";
 
 constructor(private http:HttpClient) { }
-getBirds():Observable<Birds[]>{
-  return this.http.get<Birds[]>(this.url);
+
+
+getRest():Observable<Rest1>{
+  return this.http.get<Rest1>(this.url);
 }
 
-postBirds(bird:Birds):Observable<Birds[]>{
-  return this.http.post<Birds[]>(this.url, bird);
+postRest(bird:Birds):Observable<Birds>{
+  return this.http.post<Birds>(this.url, bird);
 }
-putBirds(bird:Birds):Observable<Birds[]>{
-  return this.http.put<Birds[]>(this.url+"/"+bird.id, bird);
+putRest(link:string, bird:Birds):Observable<Birds>{
+  return this.http.put<Birds>(link, bird);
 }
-deleteBirds(bird:Birds):Observable<Birds[]>{
-  return this.http.delete<Birds[]>(this.url+"/"+bird.id);
+deleteRest(bird:Birds):Observable<Birds>{
+  return this.http.delete<Birds>(bird._links.self.href)
 }
-setList(list:Birds[]){
-  this.list.next(list);
-  }
 
 }

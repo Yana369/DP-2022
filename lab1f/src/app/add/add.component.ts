@@ -18,19 +18,18 @@ export class AddComponent implements OnInit {
     
   }
 
-  getBirds():void{
-    this.service.getBirds().subscribe(
-      (birds)=>{
-        this.BirdsList=birds;
-        this.service.setList(birds);
+  getRest():void{
+    this.service.getRest().subscribe(
+      (rest1)=>{
+        this.BirdsList=rest1._embedded.birdses;
       }
     )
   }
 
-  addBirds(birds:Birds){
-    this.service.postBirds(birds).subscribe(
+  addRest(birds:Birds){
+    this.service.postRest(birds).subscribe(
       ()=>{
-        this.getBirds();
+        this.getRest();
       }
     )
   }
